@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css?family=Bai+Jamjuree:400,600&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$color-primary: hsl(210, 10%, 33%);
+$color-secondary: hsl(201, 11%, 66%);
+$color-accent: hsl(171, 66%, 44%);
+$color-optional: hsl(233, 100%, 69%);
+
+html {
+  font-size: 10px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 1.8rem;
+  color: $color-primary;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.container{
+  width: 100%;
+  max-width: 114rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-intro {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.section-text {
+  color: $color-secondary;
+  line-height: 1.6;
+}
+
+.header {
+  background-image: url(images/bg-header-desktop.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 13rem;
+  padding-bottom: 15rem;
+  text-align: center;
+
+  &__site-link {
+    margin-bottom: 7rem;
+  }
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  &__text {
+    color: $color-secondary;
+    max-width: 66rem;
+    margin: 2rem auto 8rem;
+    line-height: 1.6;
+  }
+
+  &__btn {
+    border-radius: 5rem;
+    padding: 1.5rem 3.5rem;
+    color: #fff;
+    transition: .3s;
+  }
+
+  &__btn--accent {
+    background-color: $color-accent;
+    box-shadow: 0px 2px 3px 1px $color-accent;
+    margin-right: 0.7rem;
+
+    &:hover{
+      background-color: lighten($color: $color-accent, $amount: 5)
+      
+    }
+  }
+  &__btn--optional {
+    background-color: $color-optional;
+    box-shadow: 0px 2px 3px 1px $color-optional;
+    margin-left: 0.7rem;
+
+    &:hover{
+      background-color: lighten($color: $color-optional, $amount: 5)
+      
+    }
+  }
+}
+
+.section-one {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+  &__intro {
+    @extend .section-intro;
+  }
+
+  &__title {
+    @extend .section-title;
+  }
+
+  &__text {
+    @extend .section-text;
+  }
+
+  &__cols {
+      padding: 8rem 0;
+    display: grid;
+    // grid-template-columns: 1fr 11rem 11rem 1fr;
+    grid-template-columns: 1fr 30px 30px 1fr;
+    // grid-template-areas: "img img img text";
+    grid-template-areas: 
+    "img img img text";
+    // max-width: 1440px;
+    // margin: 0 auto;
+  }
+
+  &__col-l {
+    grid-area: img;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    transform: translateX(-30px);
+
+  }
+
+  &__col-r {
+      padding: 7rem 0 10rem 8rem;
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__secondary-title{
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+  }
+
+  &__secondary-text{
+      max-width: 34rem;
+      font-size: 1.6rem;
+      color: $color-secondary;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+  }
+
+
+}
+
+.section-two{
+    padding: 7rem 0;
+
+    &__intro{
+        @extend .section-intro;
+    }
+
+    &__title{
+        @extend .section-title;
+    }
+
+    &__text {
+        @extend .section-text;
+    }
+
+    &__img{
+        margin: 10rem auto 0 auto;
+    }
+}
+
+.section-three{
+  padding-bottom: 8rem;
+
+  &__intro{
+        @extend .section-intro;
+        margin-bottom: 7rem;
+    }
+
+    &__title{
+        @extend .section-title;
+    }
+
+    &__text {
+        @extend .section-text;
+    }
+
+    &__services{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3.4rem;
+      margin-bottom: 16rem;
+
+    }
+
+    &__service{
+      text-align: center;
+    }
+
+
+    &__service-img{
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 5rem;
+    }
+
+    &__service-title{
+      @extend .section-one__secondary-title;
+    }
+
+    &__service-text{
+      @extend .section-text;
+      font-size: 1.6rem;
+    }
+
+    &__brands{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      justify-content: space-evenly;
+      gap: 3rem;
+      // place-content: center;
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      // flex-grow: 1;
+      // flex-wrap: wrap;
+    }
+
+    &__brand-img{
+      margin: 0 auto;
+      // margin-right: 20px;
+      // &:last-child{
+      //   margin-right: 0;
+      // }
+    }
+
+}
+
+.section-four{
+  text-align: center;
+  padding: 8rem 0 15rem;
+    &__intro{
+        @extend .section-intro;
+        margin-bottom: 5rem;
+    }
+
+    &__title{
+        @extend .section-title;
+    }
+
+    &__text {
+        @extend .section-text;
+    }
+
+    &__btn{
+      @extend .header__btn;
+    }
+}
+
+.footer {
+  min-height: 15rem;
+  background-color: lighten($color: $color-secondary, $amount: 30);
+  display: flex;
+  align-items: center;
+
+  &__bar{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-content: center;
+    
+  }
+
+  &__link{
+    color: $color-primary;
+    margin: .5rem 0;
+    transition: color .3s;
+
+    &:hover{
+      color: $color-accent;
+    }
+  }
+  
+
+  &__logo-img{
+    max-width: 5.5rem;
+    margin: auto;
+  }
+
+  &__col-1{
+    display: flex;
+align-items: center;  }
+
+  &__col-2{
+    display: flex;
+    flex-direction: column;
+  }
+  &__col-4{
+    display: flex;
+    flex-direction: column;
+  }
+  &__col-3{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__col-5{
+    grid-column: 5/7;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__social-list{
+    display: flex;
+    list-style: none;
+  }
+
+  &__social-item{
+    margin: .5rem;
+
+  }
+
+  &__social-link{
+    padding: .5rem;
+    font-size: 2.4rem;
+    color: $color-primary;
+    transition: color .3s;
+
+    &:hover{
+      color: $color-accent;
+    }
+  }
+}
